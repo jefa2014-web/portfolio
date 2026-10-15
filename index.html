@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jeni Fathima – Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fb; --surface:#ffffff; --ink:#14284b; --muted:#53627d; --line:#d9e1ef;
+  --accent:#2f6bff; --accent-ink:#ffffff; --mint:#12a37f; --hl:#e4ecff;
+  --head:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0d1730;--surface:#15233f;--ink:#eaf0ff;--muted:#9fb0d0;--line:#26375c;--accent:#6c97ff;--accent-ink:#0d1730;--mint:#3ed1a9;--hl:#1e3260;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0d1730;--surface:#15233f;--ink:#eaf0ff;--muted:#9fb0d0;--line:#26375c;--accent:#6c97ff;--accent-ink:#0d1730;--mint:#3ed1a9;--hl:#1e3260;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+nav .logo{font:800 1.15rem var(--head);text-decoration:none}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav li a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;white-space:nowrap}
+nav li a:hover{color:var(--ink)}
+#theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font:500 .85rem var(--body);cursor:pointer}
+.hero{padding:72px 0 56px}
+.hero h1{font:800 clamp(3.4rem,13vw,9rem)/.88 var(--head);letter-spacing:-.04em;margin:0 0 28px}
+.hero h1 span{display:block;color:var(--accent)}
+.hero p.lead{max-width:60ch;font-size:1.2rem;color:var(--muted);margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.p{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-2px)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;color:var(--muted);font-size:.95rem}
+.facts b{color:var(--ink)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.8rem,4vw,2.6rem)/1.1 var(--head);letter-spacing:-.02em;margin:0 0 28px}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.about p{margin:0 0 16px;max-width:62ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.edu h3{margin:0 0 4px;font:800 1.1rem var(--head)}
+.edu small{color:var(--muted)}
+.skillrow{margin-bottom:22px}
+.skillrow h3{margin:0 0 10px;font:600 .95rem var(--body);color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .95rem var(--body);padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+#hint{color:var(--muted);margin:0 0 24px;min-height:1.65em}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.proj{transition:border-color .2s,box-shadow .2s,opacity .2s}
+.proj .tag{display:inline-block;font-size:.85rem;font-weight:600;color:var(--mint);margin-bottom:6px}
+.proj h3{margin:0 0 12px;font:800 1.3rem/1.2 var(--head)}
+.proj ul,.list{margin:0;padding-left:20px}
+.proj li,.list li{margin-bottom:8px}
+.proj .stack{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.proj .stack span{font-size:.8rem;padding:3px 10px;border-radius:6px;background:var(--hl)}
+.match{border-color:var(--accent);box-shadow:0 0 0 3px var(--hl)}
+.dim{opacity:.45}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.card h3{margin:0 0 14px;font:800 1.15rem var(--head)}
+.contact{text-align:left}
+.contact .big{display:inline-block;font:800 clamp(1.4rem,5vw,2.6rem)/1.2 var(--head);letter-spacing:-.02em;word-break:break-all;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--accent)}
+.contact p{color:var(--muted);margin:12px 0 0}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.about{grid-template-columns:1fr}.hero{padding-top:48px}nav ul{gap:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="#top">Jeni Fathima</a>
+  <ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#training">Training</a></li><li><a href="#contact">Contact</a></li></ul>
+  <button id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+</nav></div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <h1>Jeni<span>Fathima</span></h1>
+  <p class="lead">Software engineer who builds web applications from the database up: clean interfaces, solid APIs, and code that holds up when it is tested.</p>
+  <div class="cta">
+    <a class="btn p" href="mailto:jenifathima2014@gmail.com">Email me</a>
+    <a class="btn" href="#projects">See my projects</a>
+  </div>
+  <div class="facts">
+    <span><b>B.E. Computer Science &amp; Engineering</b>, First Class, 2019</span>
+    <span>Based in <b>Nagercoil, Tamil Nadu</b></span>
+  </div>
+</div>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <h2>About me</h2>
+    <p>I am a detail-oriented, analytical software engineer with a solid foundation in the software development life cycle, object-oriented design, database management and web technologies.</p>
+    <p>I enjoy developing web applications, writing efficient code and working through complex problems. I am looking to apply my skills in Java, Python and modern web frameworks to high-impact software engineering projects.</p>
+  </div>
+  <div class="card edu">
+    <small>Education</small>
+    <h3>Bachelor of Engineering (B.E.), Computer Science &amp; Engineering</h3>
+    <p style="margin:6px 0 0">Nagercoil, Tamil Nadu<br>First Class, graduated 2019</p>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p id="hint" aria-live="polite">Select a skill to see where I have used it.</p>
+  <div class="skillrow"><h3>Programming languages</h3><div class="chips"><button class="chip" type="button">Java</button><button class="chip" type="button">Python</button><button class="chip" type="button">C++</button></div></div>
+  <div class="skillrow"><h3>Web technologies</h3><div class="chips"><button class="chip" type="button">HTML5</button><button class="chip" type="button">CSS3</button><button class="chip" type="button">JavaScript</button><button class="chip" type="button">React.js</button><button class="chip" type="button">Node.js</button></div></div>
+  <div class="skillrow"><h3>Databases</h3><div class="chips"><button class="chip" type="button">MySQL</button><button class="chip" type="button">PostgreSQL</button></div></div>
+  <div class="skillrow"><h3>Tools &amp; frameworks</h3><div class="chips"><button class="chip" type="button">Git</button><button class="chip" type="button">GitHub</button><button class="chip" type="button">VS Code</button><button class="chip" type="button">Postman</button><button class="chip" type="button">RESTful APIs</button></div></div>
+  <div class="skillrow"><h3>Core concepts</h3><div class="chips"><button class="chip" type="button">Data Structures &amp; Algorithms</button><button class="chip" type="button">OOP</button><button class="chip" type="button">SDLC</button><button class="chip" type="button">Database Management</button></div></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="projects">
+    <article class="card proj" data-skills="HTML5|CSS3|JavaScript|MySQL|Database Management|SDLC">
+      <span class="tag">Full stack development</span>
+      <h3>Web-Based Inventory &amp; Management System</h3>
+      <ul>
+        <li>Designed and developed clean, responsive front-end interfaces using HTML5, CSS3 and JavaScript.</li>
+        <li>Implemented back-end logic and structured database storage in MySQL for efficient data queries.</li>
+        <li>Debugged, tuned performance and unit tested the system for robust, seamless use.</li>
+      </ul>
+      <div class="stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>MySQL</span></div>
+    </article>
+    <article class="card proj" data-skills="RESTful APIs|Git|GitHub|Postman|SDLC">
+      <span class="tag">Web application</span>
+      <h3>Task &amp; Workflow Management Application</h3>
+      <ul>
+        <li>Built a task-tracking tool where users manage daily activities, assign priorities and track milestones in real time.</li>
+        <li>Developed RESTful API endpoints for secure, smooth communication between client applications and server databases.</li>
+        <li>Managed version control and collaboration with Git and GitHub.</li>
+      </ul>
+      <div class="stack"><span>RESTful APIs</span><span>Git</span><span>GitHub</span></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="training"><div class="wrap">
+  <h2>Certifications &amp; training</h2>
+  <div class="grid2">
+    <div class="card proj" data-skills="React.js|Node.js|RESTful APIs|JavaScript|HTML5|CSS3">
+      <h3>Full Stack Web Development</h3>
+      <p style="margin:0">Hands-on experience with modern web frameworks and API integration.</p>
+    </div>
+    <div class="card proj" data-skills="Java|Data Structures &amp; Algorithms|OOP">
+      <h3>Data Structures &amp; Algorithms in Java</h3>
+      <p style="margin:0">Advanced problem solving, code optimisation and efficiency analysis.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="strengths"><div class="wrap">
+  <h2>How I work</h2>
+  <div class="card"><ul class="list">
+    <li>Strong analytical thinking, logical reasoning and debugging skills.</li>
+    <li>A fast learner who adapts to new programming languages, frameworks and tools.</li>
+    <li>Clear communication and collaborative teamwork.</li>
+  </ul></div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h2>Let's work together</h2>
+  <a class="big" href="mailto:jenifathima2014@gmail.com">jenifathima2014@gmail.com</a>
+  <p>Call <a href="tel:+918838706017">+91 8838706017</a> &middot; Nagercoil, Tamil Nadu</p>
+</div></section>
+</main>
+<footer><div class="wrap">&copy; Jeni Fathima</div></footer>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('.chip'),items=document.querySelectorAll('.proj'),hint=document.getElementById('hint'),active=null;
+  var decode=function(s){var t=document.createElement('textarea');t.innerHTML=s;return t.value};
+  chips.forEach(function(c){c.setAttribute('aria-pressed','false');c.addEventListener('click',function(){
+    var name=c.textContent.trim();
+    chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    if(active===name){active=null;items.forEach(function(i){i.classList.remove('match','dim')});hint.textContent='Select a skill to see where I have used it.';return}
+    active=name;c.setAttribute('aria-pressed','true');var n=0;
+    items.forEach(function(i){var hit=decode(i.dataset.skills).split('|').indexOf(name)>-1;i.classList.toggle('match',hit);i.classList.toggle('dim',!hit);if(hit)n++});
+    hint.textContent=n?name+' appears in '+n+' project'+(n>1?'s':'')+' or training course'+(n>1?'s':'')+' below.':name+' is part of my core skill set and coursework.';
+  })});
+  var root=document.documentElement,btn=document.getElementById('theme');
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>
